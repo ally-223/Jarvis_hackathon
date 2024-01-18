@@ -1,42 +1,124 @@
-#root {
-  max-width: 1280px;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #333;
+  color: hsl(200, 100%, 90%);
+  max-width: 400px;
+  padding: 1rem;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-@keyframes logo-spin {
+.potential-buyers-btn {
+  width: 150px;
+  height: 150px;
+  font-size: 16px;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.potential-buyers-btn:hover {
+  background-color: #45a049;
+}
+
+.popup-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  align-items: top;
+  animation: slideUp 0.3s ease-out;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #8e0c0c; /* Red */
+  color: white;
+}
+
+.close-popup:hover {
+  background-color: #d32f2f;
+}
+
+@keyframes slideUp {
   from {
-    transform: rotate(0deg);
+    transform: translateY(100%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.popup-message {
+  color: #333;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ffffff;
+  margin: 1% auto 0;
+  display: inline-block;
+  padding: 1em; /* Adds padding inside the message box */
 }
 
-.card {
-  padding: 2em;
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.profile {
+  position: relative;
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%; /* Creates the circular frame */
+  overflow: hidden;
+  margin-top: 20px; /* Spacing from the message */
 }
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the frame */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.profile:hover .overlay {
+  opacity: 1; /* Shown on hover */
+}
+
